@@ -26,12 +26,11 @@ A four-phase group project for Sheridan College's DBAS31064 Big Data course (202
 ```text
 Historical energy/weather text ──> HDFS (/energydata, /weatherdata)
                                           |
-                                          v
-                                  Java MapReduce
-                                          |
-                                          v
-                                  PySpark analysis
-                                    (energy .txt)
+                              +-----------+-----------+
+                              |                       |
+                              v                       v
+                         Java MapReduce         PySpark analysis
+                                                   (energy .txt)
 
 New meter readings (sample text) --> Kafka producer --> Kafka topic
                                                           |
@@ -48,6 +47,7 @@ New meter readings (sample text) --> Kafka producer --> Kafka topic
 
 ```text
 hadoop/       Example HDFS loading script
+mapreduce/    Phase 2 Java MapReduce jobs (six screenshot-transcribed classes)
 kafka/        Python Kafka producer and consumer
 spark/        PySpark batch analysis scripts
 docs/         Implementation notes and limitations
@@ -67,6 +67,6 @@ See [implementation notes](docs/PROJECT_NOTES.md) for important setup details an
 
 ## Source provenance
 
-The Python and PySpark scripts were **reconstructed from code printed in the original course reports**. Formatting was restored and some basic safety/portability adjustments may be present. They have **not been re-tested against the original classroom Hadoop server**. Phase 2 Java source is shown primarily in screenshots in the report and has not been transcribed into Java files in this repository.
+The Python and PySpark scripts were **reconstructed from code printed in the original course reports**. Formatting was restored and some basic safety/portability adjustments may be present. They have **not been re-tested against the original classroom Hadoop server**. Phase 2 Java source has been transcribed from the original course-report screenshots into six `.java` files under `mapreduce/`. All recovered scripts require testing against a properly configured Hadoop environment.
 
 The original reports also contain internal connection details and screenshots, so they are not published unredacted here. This is a collaborative academic project; both contributors are credited above.
