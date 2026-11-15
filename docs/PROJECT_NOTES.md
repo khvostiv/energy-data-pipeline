@@ -10,8 +10,9 @@ The following summarizes the original four 2026 course phases, based on the team
 
 ## Phase 2 — Java MapReduce
 - Java MapReduce jobs analyzed electricity consumption, including maximum and average calculations.
-- The available Phase 2 source is primarily embedded as screenshots in the original course report.
-- Runnable Java files are **not included** until the screenshot transcriptions can be checked against the original source.
+- The six Java classes were transcribed from screenshots in the Phase 2 report and committed under `mapreduce/average-consumption/` and `mapreduce/max-electricity/`.
+- Screenshot transcription preserves the course prototype logic; these classes have not yet been compiled or tested against the original Hadoop environment.
+- **Important distinction:** the original Phase 2 average reducer computes the mean of the meter reading values by house/date. The later Phase 4 Spark implementation instead computes per-interval usage from cumulative readings before aggregation. This difference has not been silently corrected in the Java code.
 
 ## Phase 3 — Kafka to HDFS
 - Input: 60 simulated readings with `LOG_ID HOUSE_ID CONDATE CONHOUR ENERGY_READING FLAG`.
